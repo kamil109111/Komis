@@ -16,6 +16,7 @@ namespace Komis
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // za każdym razem gdy ktoś poprosi o ISamochodRepository to zostanie zwrócony MockSamochodRepository 
             services.AddTransient<ISamochodRepository, MockSamochodRepository>();
             services.AddMvc();
         }
