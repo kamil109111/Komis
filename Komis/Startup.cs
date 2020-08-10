@@ -46,7 +46,18 @@ namespace Komis
             app.UseStaticFiles();
 
             // używamy MVC z domyślnym routingiem
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            // tworzenie własnych tras
+            // trasa jest identyczna jak UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default", 
+                    template: "{controller=Home}/{action=Index}/{id?}");
+                //można dodawać więcej tras
+
+            });
         }
     }
 }

@@ -35,5 +35,22 @@ namespace Komis.Controllers
 
             return View(homeVM);
         }
+
+        // akcja szczegóły która bedzie wyświetlać szczegóły danego samochodu
+        public IActionResult Szczegoly(int id)
+        {
+            // tworzymy zmieną samochod która korzysta z samochodRepository i używa metody PobierzSamochodOId z id samochodu równym id
+            var samochod = _samochodRepository.PobierzSamochodOId(id);
+
+            // jeśli nie znajdzie samochodu
+            if (samochod == null)
+
+                // zwraca 404
+                return NotFound();
+
+            // jeśli znajdzie samochód to zwraca widok
+            return View(samochod);
+
+        }
     }
 }
