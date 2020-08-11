@@ -15,5 +15,6 @@ namespace Komis.Models
         }
 
         public DbSet<Samochod> Samochody { get; set; }
+        public DbSet<Opinia> Opinie { get; set; }
     }
 }
