@@ -6,6 +6,7 @@ using Komis.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,11 +26,17 @@ namespace Komis
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
 
-        {
+        {            
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
+            //AddIdentity dodaje domyślną konfigurację systemu tożsamości
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+
             // za każdym razem gdy ktoś poprosi o ISamochodRepository to zostanie zwrócony SamochodRepository 
             services.AddTransient<ISamochodRepository, SamochodRepository>();
+
             services.AddTransient<IOpiniaRepository, OpiniaRepository>();
+            
             services.AddMvc();
         }
 
@@ -45,6 +52,9 @@ namespace Komis
 
             // podłączenie obsługi plików statycznych np. obrazy, pliki js i inne
             app.UseStaticFiles();
+
+            //oprogramowanie pośredniczące do uwierzytelniania
+            app.UseAuthentication();
 
             // używamy MVC z domyślnym routingiem
             //app.UseMvcWithDefaultRoute();
