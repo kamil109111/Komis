@@ -40,5 +40,20 @@ namespace Komis.Models
         {
             return samochody;
         }
+
+        public void DodajSamochod(Samochod samochod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EdytujSamochod(Samochod samochod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UsunSamochod(Samochod samochod)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
