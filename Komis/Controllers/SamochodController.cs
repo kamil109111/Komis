@@ -27,5 +27,18 @@ namespace Komis.Controllers
             // którszy zaspis
             // return View(_samochodRepository.PobierzWszystkieSamochody());
         }
+
+        //metoda przyjmuje id samochodu
+        public IActionResult Details(int id)
+        {
+            // zmienna samochod przyjmuję wartosc z _samochodRepository o id
+            var samochod = _samochodRepository.PobierzSamochodOId(id);
+
+            //sprawdzenie czy samochod został pobrany
+            if (samochod == null)
+                return NotFound();
+
+            return View(samochod);
+        }
     }
 }
