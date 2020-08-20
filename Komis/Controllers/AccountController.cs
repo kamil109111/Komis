@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Komis.ViewModels;
+﻿using Komis.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Komis.Controllers
 {
@@ -29,7 +26,7 @@ namespace Komis.Controllers
 
         // metoda async zwraca Task
         [HttpPost]
-        public async Task<IActionResult>  Login(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             //jeśli dane nie są poprawne
             if (!ModelState.IsValid)
@@ -62,14 +59,14 @@ namespace Komis.Controllers
             return View(new LoginViewModel());
         }
 
-        // metoda do rejestracji
+        // metoda do rejestracji    
         [HttpPost]
-        public async Task<IActionResult> Register(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Register(LoginViewModel loginVM)
         {
-            if(!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var user = new IdentityUser() { UserName = loginViewModel.UserName };
-                var result = await _userManager.CreateAsync(user, loginViewModel.Password);
+                var user = new IdentityUser() { UserName = loginVM.UserName };
+                var result = await _userManager.CreateAsync(user, loginVM.Password);
 
                 if (result.Succeeded)
                 {
@@ -77,7 +74,7 @@ namespace Komis.Controllers
                 }
             }
 
-            return View(loginViewModel);
+            return View(loginVM);
         }
 
         //metoda do wylogowania

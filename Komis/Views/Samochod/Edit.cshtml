@@ -1,0 +1,96 @@
+﻿@model Komis.Models.Samochod
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Samochod</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Marka" class="control-label"></label>
+                <input asp-for="Marka" class="form-control" />
+                <span asp-validation-for="Marka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RokProdukcji" class="control-label"></label>
+                <input asp-for="RokProdukcji" class="form-control" />
+                <span asp-validation-for="RokProdukcji" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Przebieg" class="control-label"></label>
+                <input asp-for="Przebieg" class="form-control" />
+                <span asp-validation-for="Przebieg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pojemnosc" class="control-label"></label>
+                <input asp-for="Pojemnosc" class="form-control" />
+                <span asp-validation-for="Pojemnosc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RodzajPaliwa" class="control-label"></label>
+                <input asp-for="RodzajPaliwa" class="form-control" />
+                <span asp-validation-for="RodzajPaliwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Moc" class="control-label"></label>
+                <input asp-for="Moc" class="form-control" />
+                <span asp-validation-for="Moc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZdjecieUrl" class="control-label"></label>
+                <input asp-for="ZdjecieUrl" class="form-control" />
+                <span asp-validation-for="ZdjecieUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiniaturkaUrl" class="control-label"></label>
+                <input asp-for="MiniaturkaUrl" class="form-control" />
+                <span asp-validation-for="MiniaturkaUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="JestSamochodemTygodnia" /> @Html.DisplayNameFor(model => model.JestSamochodemTygodnia)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="JestWCentrali" /> @Html.DisplayNameFor(model => model.JestWCentrali)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace Komis.Models
 {
     // Ta klasa to pośrednik pomiędzy kodem a bazą danych, dziedziczy po wbudowanym DbContext
-    // IdentityUser to klasa która zawiera już podtawowe właściości
-    // które chcemy przechowiwać dla użytkownika np. login, email
+    // IdentityUser to klasa która zawiera już podstawowe właściwości
+    // które chcemy przechowywać dla użytkownika np. login, email
     public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options)

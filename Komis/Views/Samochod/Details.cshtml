@@ -1,0 +1,97 @@
+﻿@model Komis.Models.Samochod
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Samochod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RokProdukcji)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RokProdukcji)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Przebieg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Przebieg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pojemnosc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pojemnosc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RodzajPaliwa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RodzajPaliwa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Moc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Moc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ZdjecieUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ZdjecieUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MiniaturkaUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MiniaturkaUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JestSamochodemTygodnia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JestSamochodemTygodnia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JestWCentrali)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JestWCentrali)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
