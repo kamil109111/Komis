@@ -113,10 +113,18 @@ namespace Komis.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id, string ZdjecieUrl)
         {
             var samochod = _samochodRepository.PobierzSamochodOId(id);
             _samochodRepository.UsunSamochod(samochod);
+
+            // usuwanie pliku zdjęcia z serwera
+            if (ZdjecieUrl != null)
+            {
+                var webRoot = _env.WebRootPath;
+                var filePath = Path.Combine(webRoot.ToString() + ZdjecieUrl);
+                System.IO.File.Delete(filePath);
+            }
 
             return RedirectToAction(nameof(Index));
         }
