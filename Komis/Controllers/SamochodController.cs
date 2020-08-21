@@ -86,5 +86,25 @@ namespace Komis.Controllers
             // jeśli coś nie tak
             return View(samochod);
         }
+
+        public IActionResult Delete(int Id)
+        {
+            var samochod = _samochodRepository.PobierzSamochodOId(Id);
+            if (samochod == null)
+                return NotFound();
+
+            return View(samochod);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var samochod = _samochodRepository.PobierzSamochodOId(id);
+            _samochodRepository.UsunSamochod(samochod);
+
+            return RedirectToAction(nameof(Index));
+        }
+        
     }
 }
