@@ -40,5 +40,27 @@ namespace Komis.Controllers
 
             return View(samochod);
         }
+
+        // Ta metoda zwraca widok do dodania nowego samochodu
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Ta metoda przyjmuję wartości które zostały wpisane w formularzu create
+        [HttpPost]
+        // zabezpieczenia przed sfałszowaniem formularza
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Samochod samochod)
+        {
+            // jeśli wszystko ok
+            if (ModelState.IsValid)
+            {
+                _samochodRepository.DodajSamochod(samochod);
+                return RedirectToAction("Index");
+            }
+            // jeśli coś nie tak
+            return View(samochod);
+        }
     }
 }
